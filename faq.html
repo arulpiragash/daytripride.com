@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQs - Groupe Blue Van Paris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #000000;
+            --accent: #c9a66a;
+            --panel: #2b2623;
+            --muted: #f4f2ef;
+            --light: #f6f4f3;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: #fff;
+            color: #222;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 62px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        /* HEADER */
+        header.site-header {
+            background: linear-gradient(180deg, var(--dark), #000000);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-bottom: #dcd333 2px solid;
+        }
+
+        @keyframes headerSlideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            max-width: 100%;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            animation: brandPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes brandPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .brand img {
+            width: 250px;
+            height: auto;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 90;
+            padding: 8px;
+            margin-left: auto;
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        nav.main-nav a {
+            color: var(--muted);
+            opacity: 0.9;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            white-space: nowrap;
+            animation: navItemSlide 0.6s ease backwards;
+        }
+
+        @keyframes navItemSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav.main-nav a:nth-child(1) { animation-delay: 0.1s; }
+        nav.main-nav a:nth-child(2) { animation-delay: 0.2s; }
+        nav.main-nav a:nth-child(3) { animation-delay: 0.3s; }
+        nav.main-nav a:nth-child(4) { animation-delay: 0.4s; }
+        nav.main-nav a:nth-child(5) { animation-delay: 0.5s; }
+        nav.main-nav a:nth-child(6) { animation-delay: 0.6s; }
+        nav.main-nav a:nth-child(7) { animation-delay: 0.7s; }
+
+        nav.main-nav a:hover {
+            background: rgba(255, 255, 255, 0.03);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .cta {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        .cta:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 166, 106, 0.3);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+           background: linear-gradient(rgba(31, 25, 22, 0.5), rgba(31, 25, 22, 0.8)), 
+                        url('asset/img/header/a.png') center/cover;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0 0 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 0 0 24px;
+            color: rgba(244, 242, 239, 0.95);
+        }
+
+        .hero .btn {
+            background: white;
+            color: var(--dark);
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: var(--accent);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            background: white;
+            padding: 48px 0;
+        }
+
+        .faq-wrapper {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .faq-sidebar {
+            background: var(--light);
+            padding: 24px;
+            border-radius: 12px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .faq-sidebar h3 {
+            font-size: 16px;
+            color: var(--dark);
+            margin: 0 0 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .faq-category {
+            padding: 12px 16px;
+            background: white;
+            border-left: 4px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .faq-category:hover {
+            background: #f5f5f5;
+            border-left-color: var(--accent);
+        }
+
+        .faq-category.active {
+            background: var(--accent);
+            color: var(--dark);
+            border-left-color: var(--dark);
+        }
+
+        .faq-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .faq-section {
+            display: none;
+        }
+
+        .faq-section.active {
+            display: block;
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin: 0 0 28px;
+            font-weight: 700;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-question.active {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .faq-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #555;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* HELP SECTION */
+        .help-section {
+            background: linear-gradient(135deg, var(--accent), #b89660);
+            padding: 48px 32px;
+            text-align: center;
+            margin-top: 48px;
+            border-radius: 12px;
+            color: var(--dark);
+        }
+
+        .help-section h2 {
+            font-size: 32px;
+            margin: 0 0 12px;
+            font-weight: 700;
+        }
+
+        .help-section p {
+            font-size: 16px;
+            margin: 0 0 24px;
+            color: rgba(31, 25, 22, 0.9);
+        }
+
+        .help-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .help-btn {
+            background: var(--dark);
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .help-btn:hover {
+            background: white;
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer.site-footer {
+            background: var(--dark);
+            padding: 48px 0;
+            color: var(--muted);
+            border-top: 1px solid rgba(201, 166, 106, 0.2);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: var(--max-width);
+            margin: 0 auto 32px;
+            padding: 0 20px;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section li {
+            color: rgba(244, 242, 239, 0.85);
+            font-size: 15px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 6px;
+        }
+
+        .footer-section a {
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .payment-logos {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .payment-logos img {
+            height: 48px;
+        }
+
+        .sites-section {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(201, 166, 106, 0.2);
+            margin-top: 24px;
+        }
+
+        .sites-section h4 {
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .sites-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .sites-links a {
+            color: rgba(244, 242, 239, 0.85);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .sites-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(201, 166, 106, 0.2);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 980px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav.main-nav {
+                display: none;
+                position: absolute;
+                top: 62px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--dark);
+                width: 100%;
+                gap: 0;
+                padding: 12px 0;
+                z-index: 70;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav.main-nav.active {
+                display: flex;
+                animation: menuSlideDown 0.3s ease;
+            }
+
+            @keyframes menuSlideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            nav.main-nav a {
+                padding: 12px 20px;
+                border-radius: 0;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                animation: none;
+            }
+
+            .cta {
+                padding: 10px 20px;
+                margin-top: 8px;
+                width: calc(100% - 40px);
+                text-align: center;
+                font-size: 13px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .faq-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 16px;
+            }
+
+            main {
+                padding: 32px 0;
+            }
+
+            .hero {
+                min-height: 320px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .site-header .container {
+                padding: 12px 16px;
+            }
+
+            .brand img {
+                width: 150px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 0 16px;
+            }
+
+            .help-section {
+                padding: 32px 24px;
+            }
+
+            .help-section h2 {
+                font-size: 24px;
+            }
+
+            .faq-sidebar {
+                padding: 16px;
+            }
+
+            .faq-categories {
+                gap: 6px;
+            }
+
+            .faq-category {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-header .container {
+                padding: 10px 12px;
+            }
+
+            .brand img {
+                width: 130px;
+            }
+
+            .menu-toggle {
+                font-size: 22px;
+                padding: 4px;
+            }
+
+            nav.main-nav {
+                top: 54px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .help-buttons {
+                flex-direction: column;
+            }
+
+            .help-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 12px;
+            }
+
+            main {
+                padding: 24px 0;
+            }
+
+            .hero {
+                min-height: 250px;
+                padding: 24px 0;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            .hero p {
+                font-size: 13px;
+                margin-bottom: 16px;
+            }
+
+            .faq-wrapper {
+                gap: 20px;
+            }
+
+            .faq-question {
+                padding: 16px;
+                font-size: 14px;
+            }
+
+            .faq-answer.active {
+                padding: 16px;
+            }
+
+            .help-section {
+                padding: 24px 16px;
+                margin-top: 32px;
+            }
+
+            .help-section h2 {
+                font-size: 20px;
+            }
+
+            .footer-top {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="brand">
+                <img src="asset/img/New Project (13).png" alt="Groupe Blue Van Paris">
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav class="main-nav" id="mainNav">
+                 <a href="index.html" style="color: #c9a66a; font-weight: bolder;">Home</a>
+                <a href="about.html" style="color: #c9a66a; font-weight: bolder;">About</a>
+                <a href="service.html" style="color: #c9a66a; font-weight: bolder;">Service</a>
+                <a href="https://groupebluevanparis.com/our_fleets/en" style="color: #c9a66a; font-weight: bolder;">Fleets</a>
+                <a href="https://groupebluevanparis.com/rates/en"style="color: #c9a66a; font-weight: bolder;" >Our Rates</a>
+                <a href="faq.html" style="color: #fafafa; font-weight: bolder;">Faq</a>
+                <a href="contact.html" style="color: #c9a66a; font-weight: bolder;">Contact</a>
+                <a href="https://groupebluevanparis.com/sign-in/en" style="color: #c9a66a; font-weight: bolder;">Sign in/up</a>
+                <a class="cta" href="https://groupebluevanparis.com/booknow/en" style="color: #000000; font-weight: bolder; border: #fdfdfc 1px solid;">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div>
+            <h1>Frequently Asked Questions</h1>
+            <p>Your Questions Answered – Everything You Need to Know About Groupe Blue Van Paris</p>
+            <a href="https://groupebluevanparis.com/booknow/en" class="btn">Book Your Ride</a>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 12px;">Your Questions Answered</h2>
+            <p style="text-align: center; color: #999; margin-bottom: 32px;">Everything You Need to Know About Groupe Blue Van Paris</p>
+
+            <div class="faq-wrapper">
+                <!-- Sidebar Categories -->
+                <aside class="faq-sidebar">
+                    <h3>Categories</h3>
+                    <div class="faq-categories">
+                        <div class="faq-category active" onclick="showCategory('general')">General Information</div>
+                        <div class="faq-category" onclick="showCategory('services')">Services for Children</div>
+                        <div class="faq-category" onclick="showCategory('booking')">Booking & Cancellation</div>
+                        <div class="faq-category" onclick="showCategory('pricing')">Pricing & Services</div>
+                        <div class="faq-category" onclick="showCategory('airport')">Airport Pickups</div>
+                        <div class="faq-category" onclick="showCategory('contact')">Contact Information</div>
+                    </div>
+                </aside>
+
+                <!-- FAQ Content -->
+                <div class="faq-content">
+                    <!-- General Information -->
+                    <section class="faq-section active" id="general">
+                        <h2>General Information</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>How do I choose the vehicle?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can choose from our fleet of vehicles based on your needs. We offer sedans for individuals, vans for families, and luxury vehicles for premium service. Select your preferred vehicle type during booking.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>What type of vehicles do you use, and what are their features?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our fleet includes modern, well-maintained vehicles ranging from 4-seater sedans to 8-seater vans. All vehicles are air-conditioned, equipped with GPS, and maintained to high standards of cleanliness and comfort.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>What destinations do you provide transfers to?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We provide transfers to all major destinations in the Paris region including Charles de Gaulle Airport, Orly Airport, Beauvais Airport, Disneyland Paris, and throughout central Paris and suburbs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>How secure is my online payment?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Your payment is fully secure. We use encrypted payment gateways with SSL certification. We accept major credit cards and payment methods with industry-standard security protocols to protect your information.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Why do I need to book in advance?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Booking in advance helps us guarantee vehicle availability, assign the best driver for your journey, and provide you with accurate pricing. It also ensures we can meet you exactly when you need us.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>I didn't receive a confirmation email for my reservation. What should I do?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Check your spam or junk folder first. If you still don't see it, contact our support team at contact@groupebluevanparis.com or call +33 (0)1 43 32 70 81. We can resend your confirmation immediately.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Services for Children -->
+                    <section class="faq-section" id="services">
+                        <h2>Services for Children & Disabilities</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Do you offer child seats and booster seats?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we provide child seats and booster seats upon request. Please mention the age and weight of your child during booking so we can provide the appropriate safety seat.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Do you accommodate passengers with disabilities?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we provide accessible vehicles and can accommodate passengers with disabilities. Please inform us of any special requirements during booking so we can arrange the best vehicle for your needs.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Booking & Cancellation -->
+                    <section class="faq-section" id="booking">
+                        <h2>Booking & Cancellation</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>How do I book a ride?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Booking is easy! Visit our website, select your pickup and drop-off locations, choose your preferred vehicle, and complete the payment. You'll receive a confirmation email with all details.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Can I cancel my booking?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can cancel your booking within the free cancellation window (typically 24 hours before your ride). Cancellations within this window are free. Late cancellations may incur charges.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Can I modify my booking?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can modify your booking details like time, location, or vehicle type if done within 24 hours of your scheduled ride. Contact our support team for modifications.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Pricing & Services -->
+                    <section class="faq-section" id="pricing">
+                        <h2>Pricing & Additional Services</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>What is included in the price?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our pricing includes professional driver, vehicle fuel, tolls, and basic insurance. It's a fixed-rate service with no hidden charges. Child seats and additional services are available upon request.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Do you offer discounts for group bookings?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We offer special discounts for group bookings and multiple rides. Contact our team at contact@groupebluevanparis.com for a custom quote.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Do you offer hourly hire services?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we provide hourly hire services for city tours, shopping, or custom itineraries. Minimum 2-hour booking applies. Contact us for hourly rates.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Airport Pickups -->
+                    <section class="faq-section" id="airport">
+                        <h2>Airport & Train Station Pick-ups</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Do you provide airport pickup services?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We provide pickup services from all major Paris airports: Charles de Gaulle, Orly, and Beauvais. Our drivers monitor your flight status and will be ready when you arrive.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>How early should I book my airport transfer?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We recommend booking at least 24 hours in advance for airport transfers. However, we can sometimes accommodate last-minute bookings if vehicles are available.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Will the driver wait if my flight is delayed?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We monitor your flight status and adjust pickup times accordingly. Delays are no problem – our driver will wait for you at the airport.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Do you offer train station pickups?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we provide pickups from Paris train stations including Gare du Nord, Gare de l'Est, Gare de Lyon, and others. Book in advance for best service.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>Where will the driver meet me at the airport?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Your driver will wait at the meeting point in the arrivals hall with a sign displaying your name. Specific details will be provided in your confirmation email.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contact Information -->
+                    <section class="faq-section" id="contact">
+                        <h2>Contact Information & Office Hours</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>What are your office hours?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Email support: 6AM - 11PM daily. Phone support: 24/7. We're always available to assist you with your booking needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>How can I contact customer support?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Email: contact@groupebluevanparis.com | Phone: +33 (0)1 43 32 70 81 | Mobile: +33 (0)6 09 71 36 38 | WhatsApp: +33 (0)6 09 71 35 78</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(this)">
+                                <span>How long does it take to get a response to my inquiry?</span>
+                                <span class="faq-icon">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We typically respond to inquiries within 1 hour during business hours (6AM - 11PM). For emergencies outside these hours, call our 24/7 support line.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+<br>
+            <!-- HELP SECTION -->
+            <section class="light-section" style="width: 100%;">
+                <div class="map-wrapper" style="position: relative;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.5188009852573!2d2.778722086853607!3d48.86738569741865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61d19ca7ae2bd%3A0x57faf8cb6310e660!2sDisneyland%20Paris!5e0!3m2!1sen!2slk!4v1765259299581!5m2!1sen!2slk"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+        
+                    <div class="helpbar-floating">
+                        <div class="helpbar">
+                            <div>
+                                <h3 style="color: #0b0700;">Need Help?</h3>
+                                <p style="color: #b89660;">Have questions? Contact us anytime for special requests or assistance.</p>
+                            </div>
+                            <div class="helpbar-buttons">
+                                <button style="background:var(--accent);color:var(--dark);font-weight:700;"><a href="faq.html">FAQ</a></button>
+                                <button style="background:rgba(0,0,0,0.15);color:var(--dark);font-weight:600;"><a href="contact.html">Contact</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <style>
+        .helpbar-floating {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .helpbar-floating .helpbar {
+            background: rgb(255, 255, 255);
+            padding: 25px 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            pointer-events: auto;
+            max-width: 800px;
+        }
+
+        .helpbar-floating .helpbar-buttons button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+         .helpbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #b89660);
+            color: var(--dark);
+            box-shadow: 0 12px 32px rgba(201, 166, 106, 0.25);
+            margin-top: 32px;
+            animation: helpbarSlide 0.8s ease;
+        }
+
+        @keyframes helpbarSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .helpbar h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .helpbar p {
+            margin: 6px 0 0;
+            opacity: 0.95;
+            font-size: 14px;
+        }
+
+        .helpbar-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .helpbar-buttons button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .helpbar-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .helpbar-floating {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .helpbar-floating .helpbar {
+            background: rgb(255, 255, 255);
+            padding: 25px 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            pointer-events: auto;
+            max-width: 800px;
+        }
+
+        .helpbar-floating .helpbar-buttons button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 980px) {
+            .helpbar {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+        }
+         @media (max-width: 640px) {
+
+             .helpbar-buttons {
+                flex-direction: column;
+            }
+
+            .helpbar-buttons button {
+                width: 100%;
+            }
+         }
+         @media (max-width: 480px) {
+            .helpbar {
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            .helpbar h3 {
+                font-size: 18px;
+            }
+
+            .helpbar p {
+                font-size: 13px;
+            }
+         }
+    </style>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="https://groupebluevanparis.com/rates/en">Rates</a></p>
+                    <p><a href="service.html">Services</a></p>
+                    <p><a href="https://groupebluevanparis.com/our_fleets/en">Our Fleets</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Useful Information</h4>
+                    <p><a href="faq.html">FAQ</a></p>
+                    <p><a href="#">Terms and Condition</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Cancellation policy</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>contact@groupebluevanparis.com<br>+33 (0)1 43 327 081 (24/7)</p>
+                </div>
+                <div class="footer-section">
+                    <h4>We Accept</h4>
+                    <div class="payment-logos">
+                        <img src="asset/img/New Project (13).png" alt="Visa">
+                        <!-- <img src="https://via.placeholder.com/40x25?text=MC" alt="Mastercard">
+                        <img src="https://via.placeholder.com/40x25?text=Paypal" alt="PayPal"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="sites-section">
+                <h4>Our Sites</h4>
+                <div class="sites-links">
+                    <a href="#">paris-idle-airport-shuttle.fr</a>
+                    <a href="#">disney-shuttle.fr</a>
+                    <a href="#">bluevan.fr</a>
+                    <a href="#">taxileader.fr</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                Copyright © 2025 Groupe Blue Van Paris. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+
+        // FAQ Toggle
+        function toggleAnswer(element) {
+            const question = element;
+            const answer = question.nextElementSibling;
+            
+            question.classList.toggle('active');
+            answer.classList.toggle('active');
+        }
+
+        // Category Switch
+        function showCategory(categoryId) {
+            // Hide all sections
+            document.querySelectorAll('.faq-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all categories
+            document.querySelectorAll('.faq-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(categoryId).classList.add('active');
+            
+            // Add active class to clicked category
+            event.target.classList.add('active');
+            
+            // Close all answers when switching category
+            document.querySelectorAll('.faq-question.active').forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>

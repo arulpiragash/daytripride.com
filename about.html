@@ -1,0 +1,897 @@
+<!-- ABOUT.HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - Groupe Blue Van Paris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #000000;
+            --accent: #c9a66a;
+            --panel: #2b2623;
+            --muted: #f4f2ef;
+            --light: #f6f4f3;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: #fff;
+            color: #222;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 62px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        /* HEADER */
+        header.site-header {
+            background: linear-gradient(180deg, var(--dark), #000000);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-bottom: #dcd333 2px solid;
+        }
+
+        @keyframes headerSlideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            max-width: 100%;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            animation: brandPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes brandPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .brand img {
+            width: 250px;
+            height: auto;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 90;
+            padding: 8px;
+            margin-left: auto;
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        nav.main-nav a {
+            color: var(--muted);
+            opacity: 0.9;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            white-space: nowrap;
+            animation: navItemSlide 0.6s ease backwards;
+        }
+
+        @keyframes navItemSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav.main-nav a:nth-child(1) { animation-delay: 0.1s; }
+        nav.main-nav a:nth-child(2) { animation-delay: 0.2s; }
+        nav.main-nav a:nth-child(3) { animation-delay: 0.3s; }
+        nav.main-nav a:nth-child(4) { animation-delay: 0.4s; }
+        nav.main-nav a:nth-child(5) { animation-delay: 0.5s; }
+        nav.main-nav a:nth-child(6) { animation-delay: 0.6s; }
+        nav.main-nav a:nth-child(7) { animation-delay: 0.7s; }
+
+        nav.main-nav a:hover {
+            background: rgba(255, 255, 255, 0.03);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .cta {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 12px;
+        }
+
+        .cta:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 166, 106, 0.3);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--muted);
+            background: linear-gradient(rgba(31, 25, 22, 0.5), rgba(31, 25, 22, 0.8)), 
+                        url('asset/img/header/a.png') center/cover;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0 0 24px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0 0 24px;
+            color: rgba(244, 242, 239, 0.95);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 72px 0;
+        }
+
+        .dark-section {
+            background: var(--panel);
+            color: var(--muted);
+        }
+
+        .light-section {
+            background: #fff;
+            color: #222;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: inherit;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* ABOUT GRID */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 48px;
+            align-items: start;
+            margin-top: 32px;
+        }
+
+        .about-grid h3 {
+            color: var(--accent);
+            margin-top: 28px;
+        }
+
+        .about-grid h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .about-grid p {
+            color: rgba(244, 242, 239, 0.9);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .image-oval {
+            width: 320px;
+            height: 420px;
+            border-radius: 50px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-oval img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        /* SPLIT SECTION */
+        .split-section {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 48px;
+            align-items: start;
+            margin-top: 32px;
+        }
+
+        .split-section img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: grayscale(100%);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .split-section h3 {
+            color: var(--dark);
+            margin-top: 0;
+        }
+
+        .split-section p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer.site-footer {
+            background: var(--dark);
+            padding: 48px 0;
+            color: var(--muted);
+            border-top: 1px solid rgba(201, 166, 106, 0.2);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: var(--max-width);
+            margin: 0 auto 32px;
+            padding: 0 20px;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section li {
+            color: rgba(244, 242, 239, 0.85);
+            font-size: 15px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 6px;
+        }
+
+        .footer-section a {
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .payment-logos {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .payment-logos img {
+            height: 48px;
+        }
+
+        .sites-section {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(201, 166, 106, 0.2);
+            margin-top: 24px;
+        }
+
+        .sites-section h4 {
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .sites-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .sites-links a {
+            color: rgba(244, 242, 239, 0.85);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .sites-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(201, 166, 106, 0.2);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .helpbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #b89660);
+            color: var(--dark);
+            box-shadow: 0 12px 32px rgba(201, 166, 106, 0.25);
+            margin-top: 32px;
+            animation: helpbarSlide 0.8s ease;
+        }
+
+        @keyframes helpbarSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .helpbar h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .helpbar p {
+            margin: 6px 0 0;
+            opacity: 0.95;
+            font-size: 14px;
+        }
+
+        .helpbar-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .helpbar-buttons button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .helpbar-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .helpbar-floating {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .helpbar-floating .helpbar {
+            background: rgb(255, 255, 255);
+            padding: 25px 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            pointer-events: auto;
+            max-width: 800px;
+        }
+
+        .helpbar-floating .helpbar-buttons button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 980px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .image-oval {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .split-section {
+                grid-template-columns: 1fr;
+            }
+
+            .split-section img {
+                height: 280px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav.main-nav {
+                display: none;
+                position: absolute;
+                top: 62px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--dark);
+                width: 100%;
+                gap: 0;
+                padding: 12px 0;
+                z-index: 70;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav.main-nav.active {
+                display: flex;
+                animation: menuSlideDown 0.3s ease;
+            }
+
+            @keyframes menuSlideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            nav.main-nav a {
+                padding: 12px 20px;
+                border-radius: 0;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                animation: none;
+            }
+
+            .cta {
+                padding: 10px 20px;
+                margin-top: 8px;
+                width: calc(100% - 40px);
+                text-align: center;
+                font-size: 13px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .helpbar {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 16px;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .about-grid p {
+                font-size: 14px;
+            }
+
+            .split-section p {
+                font-size: 14px;
+            }
+
+            .site-header .container {
+                padding: 12px 16px;
+            }
+
+            .brand img {
+                width: 150px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-header .container {
+                padding: 10px 12px;
+            }
+
+            .brand img {
+                width: 130px;
+            }
+
+            .menu-toggle {
+                font-size: 22px;
+                padding: 4px;
+            }
+
+            nav.main-nav {
+                top: 54px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .helpbar-buttons {
+                flex-direction: column;
+            }
+
+            .helpbar-buttons button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 12px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .hero {
+                min-height: 320px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .about-grid {
+                margin-top: 20px;
+            }
+
+            .image-oval {
+                height: 360px;
+            }
+
+            .split-section {
+                gap: 24px;
+            }
+
+            .split-section img {
+                height: 240px;
+            }
+
+            .helpbar {
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            .helpbar h3 {
+                font-size: 18px;
+            }
+
+            .helpbar p {
+                font-size: 13px;
+            }
+
+            .footer-top {
+                padding: 0 12px;
+            }
+
+            .sites-links {
+                gap: 12px;
+            }
+        }
+
+        .animate-fade {
+            animation: fadeIn 800ms ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="brand">
+                <img src="asset/img/New Project (13).png" alt="Groupe Blue Van Paris">
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav class="main-nav" id="mainNav">
+                 <a href="index.html" style="color: #c9a66a; font-weight: bolder;">Home</a>
+                <a href="about.html" style="color: #fafafa; font-weight: bolder;">About</a>
+                <a href="service.html" style="color: #c9a66a; font-weight: bolder;">Service</a>
+                <a href="https://groupebluevanparis.com/our_fleets/en" style="color: #c9a66a; font-weight: bolder;">Fleets</a>
+                <a href="https://groupebluevanparis.com/rates/en"style="color: #c9a66a; font-weight: bolder;" >Our Rates</a>
+                <a href="faq.html" style="color: #c9a66a; font-weight: bolder;">Faq</a>
+                <a href="contact.html" style="color: #c9a66a; font-weight: bolder;">Contact</a>
+                <a href="https://groupebluevanparis.com/sign-in/en" style="color: #c9a66a; font-weight: bolder;">Sign in/up</a>
+                <a class="cta" href="https://groupebluevanparis.com/booknow/en" style="color: #000000; font-weight: bolder; border: #fdfdfc 1px solid;">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container animate-fade">
+            <h1>About Us</h1>
+            <p>Based in Paris, Groupe Blue Van Paris has been providing top-quality private transportation since 1998. Specializing in airport transfers, city travel and Disneyland park or hotels, we ensure a seamless, comfortable, and professional experience for every passenger. With a commitment to reliability and customer satisfaction, we serve key destinations, including Charles de Gaulle, Orly, Beauvais, central Paris, and Disneyland.</p>
+            <a href="https://groupebluevanparis.com/booknow/en" style="background: #fff; color: var(--dark); padding: 12px 28px; border-radius: 30px; font-weight: 700; display: inline-block; transition: all 0.3s ease;">Book Your Ride</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="dark-section">
+        <div class="container">
+            <h2>About Groupe Blue Van Paris</h2>
+            <div class="about-grid">
+                <div>
+                    <p>Groupe Blue Van Paris, since 1998, has become a reputable name in personal transportation within the dynamic landscape of France's capital. As a leading service provider, our focus extends beyond mere transportation across Paris and its scenic suburbs to the region's three major airports.</p>
+
+                    <h3>Our Core Competence</h3>
+                    <p>Our journey through the years has been marked by a steadfast commitment to excellence in service and customer satisfaction. We excel in transporting people across Île-de-France and have a deep understanding of the tourism sector. Upon special request, we also offer customized city tours, presenting an unparalleled view of Paris.</p>
+
+                    <h3>Collaborative Ventures</h3>
+                    <p>Our services are widely recognized and trusted by numerous travel agencies and corporate entities worldwide, who depend on our transportation solutions for their business needs.</p>
+                </div>
+                <div class="image-oval">
+                    <img src="asset/img/1.jpg" alt="Eiffel Tower with car">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="light-section" >
+        <div class="container">
+            <div class="split-section">
+                <img src="asset/img/choose/france-colors-1920x1200-wallpaper-8669.jpg" alt="Driver">
+                <div>
+                    <h3>Dedicated Team of Drivers</h3>
+                    <p>The backbone of our operation is our proficient network of independent drivers, each holding an official VTC card, which attests to their ability to meet the strict standards required for operating in Paris. Their extensive knowledge is a key asset.</p>
+
+                    <h3>Accessibility and Support</h3>
+                    <p>We prioritize staying accessible to our clients. Our office hours are dedicated to responding to emails and calls. Additionally, we offer a 24/7 emergency contact number to ensure that assistance is always just a call away, especially during your stay in Paris.</p>
+
+                    <h3>Our Fleet: Comfort and Eco-Friendly Options</h3>
+                    <p>Our commitment to a smoke-free environment extends to our well-maintained, air-conditioned 8-seater vehicles. For those seeking luxury, our premium 7-seater Mercedes vehicles are available subject to availability. Recognizing diverse needs, we also provide 4-seater vehicles, most of which are eco-friendly hybrids.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP & HELP -->
+    <section class="light-section">
+        <div class="map-wrapper" style="position: relative;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.5188009852573!2d2.778722086853607!3d48.86738569741865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61d19ca7ae2bd%3A0x57faf8cb6310e660!2sDisneyland%20Paris!5e0!3m2!1sen!2slk!4v1765259299581!5m2!1sen!2slk"
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <div class="helpbar-floating">
+                <div class="helpbar">
+                    <div>
+                        <h3 style="color: #0b0700;">Need Help?</h3>
+                        <p style="color: #b89660;">Have questions? Contact us anytime for special requests or assistance.</p>
+                    </div>
+                    <div class="helpbar-buttons">
+                        <button style="background:var(--accent);color:var(--dark);font-weight:700;"><a href="faq.html">FAQ</a></button>
+                        <button style="background:rgba(0,0,0,0.15);color:var(--dark);font-weight:600;"><a href="contact.html">Contact</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+     <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="https://groupebluevanparis.com/rates/en">Rates</a></p>
+                    <p><a href="service.html">Services</a></p>
+                    <p><a href="https://groupebluevanparis.com/our_fleets/en">Our Fleets</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Useful Information</h4>
+                    <p><a href="faq.html">FAQ</a></p>
+                    <p><a href="#">Terms and Condition</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Cancellation policy</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>contact@groupebluevanparis.com<br>+33 (0)1 43 327 081 (24/7)</p>
+                </div>
+                <div class="footer-section">
+                    <h4>We Accept</h4>
+                    <div class="payment-logos">
+                        <img src="asset/img/New Project (13).png" alt="Visa">
+                        <!-- <img src="https://via.placeholder.com/40x25?text=MC" alt="Mastercard">
+                        <img src="https://via.placeholder.com/40x25?text=Paypal" alt="PayPal"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="sites-section">
+                <h4>Our Sites</h4>
+                <div class="sites-links">
+                    <a href="#">paris-idle-airport-shuttle.fr</a>
+                    <a href="#">disney-shuttle.fr</a>
+                    <a href="#">bluevan.fr</a>
+                    <a href="#">taxileader.fr</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                Copyright © 2025 Groupe Blue Van Paris. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
