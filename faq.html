@@ -713,10 +713,88 @@
                 padding: 0 12px;
             }
         }
+
+
+
+          /* Loader Overlay */
+.loader-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none; /* Hidden initially */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+    /* Loader Box */
+.loader-box {
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+/* Loader Logo */
+.loader-logo {
+    width: 200px; /* Adjust size */
+    height: 65px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Loader Text */
+.loader-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* Countdown Text */
+.countdown-text {
+    font-size: 16px;
+    color: rgb(32, 102, 232);
+    font-weight: bold;
+    margin-top: 20px;
+   
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: repeating-conic-gradient(rgb(8, 0, 255) 0 90deg,#eaeaea 0 180deg);
+    animation: l21 1s infinite linear;
+    margin-bottom: 100px;
+    position: fixed;
+    
+    left: 49.5%;
+     justify-content: center;
+    align-items: center;
+
+   
+  }
+  @keyframes l21 {
+    100% {transform: rotate(.5turn)}
+  }
+
     </style>
 </head>
 
 <body>
+
+      <!-- Universal Loader Popup -->
+<div class="loader-overlay" id="universalLoader" style="display:none;">
+    <div class="loader-box">
+        <img src="assets/img/logo/logo.png" alt="Logo" class="loader-logo">
+        <p class="loader-text" id="loaderMessage"></p>
+        <div class="loader"></div>
+        <p class="countdown-text">Redirecting in <span id="loaderCountdown">5</span> seconds...</p>
+    </div>
+</div>
     <!-- HEADER -->
     <header class="site-header">
         <div class="container">
@@ -733,7 +811,9 @@
                 <a href="faq.html" style="color: #fafafa; font-weight: bolder;">Faq</a>
                 <a href="contact.html" style="color: #c9a66a; font-weight: bolder;">Contact</a>
                 <a href="https://groupebluevanparis.com/sign-in/en" style="color: #c9a66a; font-weight: bolder;">Sign in/up</a>
-                <a class="cta" href="https://groupebluevanparis.com/booknow/en" style="color: #000000; font-weight: bolder; border: #fdfdfc 1px solid;">Book Now</a>
+                <a onclick="showLoader('Please wait 5 seconds to be redirected to our Booking page', 'https://groupebluevanparis.com/booknow/en')" class="cta">
+                        <span class="fas fa-taxi"></span>Book a ride
+                    </a>
             </nav>
         </div>
     </header>
@@ -743,7 +823,9 @@
         <div>
             <h1>Frequently Asked Questions</h1>
             <p>Your Questions Answered – Everything You Need to Know About Groupe Blue Van Paris</p>
-            <a href="https://groupebluevanparis.com/booknow/en" class="btn">Book Your Ride</a>
+            <a onclick="showLoader('Please wait 5 seconds to be redirected to our Booking page', 'https://groupebluevanparis.com/booknow/en')" class="cta">
+                        <span class="fas fa-taxi"></span>Book a ride
+                    </a>
         </div>
     </section>
 
@@ -1297,5 +1379,39 @@
             });
         }
     </script>
+
+
+ <script>
+function showLoader(message, url) {
+
+    document.getElementById("universalLoader").style.display = "flex";
+    document.getElementById("loaderMessage").innerText = message;
+
+    let countdown = 5;
+    document.getElementById("loaderCountdown").textContent = countdown;
+
+    let timer = setInterval(() => {
+        countdown--;
+        document.getElementById("loaderCountdown").textContent = countdown;
+
+        if (countdown <= 0) {
+            clearInterval(timer);
+            window.location.href = url;
+        }
+    }, 1000);
+}
+
+
+
+</script>
+
+<script>
+window.addEventListener("pageshow", function (event) {
+    // If coming back from browser back button, hide loader
+    if (event.persisted) {
+        document.getElementById("universalLoader").style.display = "none";
+    }
+});
+</script>
 </body>
 </html>
